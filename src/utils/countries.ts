@@ -1,0 +1,1015 @@
+const countries = [
+    {
+        CODE: "AF",
+        NOM: "Afghanistan",
+    },
+    {
+        CODE: "AX",
+        NOM: "Îles Åland",
+    },
+    {
+        CODE: "AL",
+        NOM: "Albanie",
+    },
+    {
+        CODE: "DZ",
+        NOM: "Algérie",
+    },
+    {
+        CODE: "AS",
+        NOM: "Samoa américaines",
+    },
+    {
+        CODE: "AD",
+        NOM: "Andorre",
+    },
+    {
+        CODE: "AO",
+        NOM: "Angola",
+    },
+    {
+        CODE: "AI",
+        NOM: "Anguilla",
+    },
+    {
+        CODE: "AQ",
+        NOM: "Antarctique",
+    },
+    {
+        CODE: "AG",
+        NOM: "Antigua-et-Barbuda",
+    },
+    {
+        CODE: "AR",
+        NOM: "Argentine",
+    },
+    {
+        CODE: "AM",
+        NOM: "Arménie",
+    },
+    {
+        CODE: "AW",
+        NOM: "Aruba",
+    },
+    {
+        CODE: "AU",
+        NOM: "Australie",
+    },
+    {
+        CODE: "AT",
+        NOM: "Autriche",
+    },
+    {
+        CODE: "AZ",
+        NOM: "Azerbaïdjan",
+    },
+    {
+        CODE: "BS",
+        NOM: "Bahamas",
+    },
+    {
+        CODE: "BH",
+        NOM: "Bahreïn",
+    },
+    {
+        CODE: "BD",
+        NOM: "Bangladesh",
+    },
+    {
+        CODE: "BB",
+        NOM: "Barbade",
+    },
+    {
+        CODE: "BY",
+        NOM: "Biélorussie",
+    },
+    {
+        CODE: "BE",
+        NOM: "Belgique",
+    },
+    {
+        CODE: "BZ",
+        NOM: "Belize",
+    },
+    {
+        CODE: "BJ",
+        NOM: "Bénin",
+    },
+    {
+        CODE: "BM",
+        NOM: "Bermudes",
+    },
+    {
+        CODE: "BT",
+        NOM: "Bhoutan",
+    },
+    {
+        CODE: "BO",
+        NOM: "Bolivie",
+    },
+    {
+        CODE: "BA",
+        NOM: "Bosnie-Herzégovine",
+    },
+    {
+        CODE: "BW",
+        NOM: "Botswana",
+    },
+    {
+        CODE: "BV",
+        NOM: "Île Bouvet",
+    },
+    {
+        CODE: "BR",
+        NOM: "Brésil",
+    },
+    {
+        CODE: "IO",
+        NOM: "Territoire britannique de l''océan Indien",
+    },
+    {
+        CODE: "BN",
+        NOM: "Brunei",
+    },
+    {
+        CODE: "BG",
+        NOM: "Bulgarie",
+    },
+    {
+        CODE: "BF",
+        NOM: "Burkina Faso",
+    },
+    {
+        CODE: "BI",
+        NOM: "Burundi",
+    },
+    {
+        CODE: "CV",
+        NOM: "Cap-Vert",
+    },
+    {
+        CODE: "KH",
+        NOM: "Cambodge",
+    },
+    {
+        CODE: "CM",
+        NOM: "Cameroun",
+    },
+    {
+        CODE: "CA",
+        NOM: "Canada",
+    },
+    {
+        CODE: "BQ",
+        NOM: "Pays-Bas caribéens",
+    },
+    {
+        CODE: "KY",
+        NOM: "Îles Caïmans",
+    },
+    {
+        CODE: "CF",
+        NOM: "République centrafricaine",
+    },
+    {
+        CODE: "TD",
+        NOM: "Tchad",
+    },
+    {
+        CODE: "CL",
+        NOM: "Chili",
+    },
+    {
+        CODE: "CN",
+        NOM: "Chine",
+    },
+    {
+        CODE: "CX",
+        NOM: "Île Christmas",
+    },
+    {
+        CODE: "CC",
+        NOM: "Îles Cocos",
+    },
+    {
+        CODE: "CO",
+        NOM: "Colombie",
+    },
+    {
+        CODE: "KM",
+        NOM: "Comores",
+    },
+    {
+        CODE: "CG",
+        NOM: "Congo-Brazzaville",
+    },
+    {
+        CODE: "CD",
+        NOM: "Congo-Kinshasa",
+    },
+    {
+        CODE: "CK",
+        NOM: "Îles Cook",
+    },
+    {
+        CODE: "CR",
+        NOM: "Costa Rica",
+    },
+    {
+        CODE: "HR",
+        NOM: "Croatie",
+    },
+    {
+        CODE: "CU",
+        NOM: "Cuba",
+    },
+    {
+        CODE: "CW",
+        NOM: "Curaçao",
+    },
+    {
+        CODE: "CY",
+        NOM: "Chypre",
+    },
+    {
+        CODE: "CZ",
+        NOM: "Tchéquie",
+    },
+    {
+        CODE: "CI",
+        NOM: "Côte d''Ivoire",
+    },
+    {
+        CODE: "DK",
+        NOM: "Danemark",
+    },
+    {
+        CODE: "DJ",
+        NOM: "Djibouti",
+    },
+    {
+        CODE: "DM",
+        NOM: "Dominique",
+    },
+    {
+        CODE: "DO",
+        NOM: "République dominicaine",
+    },
+    {
+        CODE: "EC",
+        NOM: "Équateur",
+    },
+    {
+        CODE: "EG",
+        NOM: "Égypte",
+    },
+    {
+        CODE: "SV",
+        NOM: "Salvador",
+    },
+    {
+        CODE: "GQ",
+        NOM: "Guinée équatoriale",
+    },
+    {
+        CODE: "ER",
+        NOM: "Érythrée",
+    },
+    {
+        CODE: "EE",
+        NOM: "Estonie",
+    },
+    {
+        CODE: "SZ",
+        NOM: "Eswatini",
+    },
+    {
+        CODE: "ET",
+        NOM: "Éthiopie",
+    },
+    {
+        CODE: "FK",
+        NOM: "Îles Malouines (Îles Falkland)",
+    },
+    {
+        CODE: "FO",
+        NOM: "Îles Féroé",
+    },
+    {
+        CODE: "FJ",
+        NOM: "Fidji",
+    },
+    {
+        CODE: "FI",
+        NOM: "Finlande",
+    },
+    {
+        CODE: "FR",
+        NOM: "France",
+    },
+    {
+        CODE: "GF",
+        NOM: "Guyane française",
+    },
+    {
+        CODE: "PF",
+        NOM: "Polynésie française",
+    },
+    {
+        CODE: "TF",
+        NOM: "Terres australes françaises",
+    },
+    {
+        CODE: "GA",
+        NOM: "Gabon",
+    },
+    {
+        CODE: "GM",
+        NOM: "Gambie",
+    },
+    {
+        CODE: "GE",
+        NOM: "Géorgie",
+    },
+    {
+        CODE: "DE",
+        NOM: "Allemagne",
+    },
+    {
+        CODE: "GH",
+        NOM: "Ghana",
+    },
+    {
+        CODE: "GI",
+        NOM: "Gibraltar",
+    },
+    {
+        CODE: "GR",
+        NOM: "Grèce",
+    },
+    {
+        CODE: "GL",
+        NOM: "Groenland",
+    },
+    {
+        CODE: "GD",
+        NOM: "Grenade",
+    },
+    {
+        CODE: "GP",
+        NOM: "Guadeloupe",
+    },
+    {
+        CODE: "GU",
+        NOM: "Guam",
+    },
+    {
+        CODE: "GT",
+        NOM: "Guatemala",
+    },
+    {
+        CODE: "GG",
+        NOM: "Guernesey",
+    },
+    {
+        CODE: "GN",
+        NOM: "Guinée",
+    },
+    {
+        CODE: "GW",
+        NOM: "Guinée-Bissau",
+    },
+    {
+        CODE: "GY",
+        NOM: "Guyana",
+    },
+    {
+        CODE: "HT",
+        NOM: "Haïti",
+    },
+    {
+        CODE: "HM",
+        NOM: "Îles Heard-et-MacDonald",
+    },
+    {
+        CODE: "HN",
+        NOM: "Honduras",
+    },
+    {
+        CODE: "HK",
+        NOM: "Hong Kong",
+    },
+    {
+        CODE: "HU",
+        NOM: "Hongrie",
+    },
+    {
+        CODE: "IS",
+        NOM: "Islande",
+    },
+    {
+        CODE: "IN",
+        NOM: "Inde",
+    },
+    {
+        CODE: "ID",
+        NOM: "Indonésie",
+    },
+    {
+        CODE: "IR",
+        NOM: "Iran",
+    },
+    {
+        CODE: "IQ",
+        NOM: "Irak",
+    },
+    {
+        CODE: "IE",
+        NOM: "Irlande",
+    },
+    {
+        CODE: "IM",
+        NOM: "Île de Man",
+    },
+    {
+        CODE: "IL",
+        NOM: "Israël",
+    },
+    {
+        CODE: "IT",
+        NOM: "Italie",
+    },
+    {
+        CODE: "JM",
+        NOM: "Jamaïque",
+    },
+    {
+        CODE: "JP",
+        NOM: "Japon",
+    },
+    {
+        CODE: "JE",
+        NOM: "Jersey",
+    },
+    {
+        CODE: "JO",
+        NOM: "Jordanie",
+    },
+    {
+        CODE: "KZ",
+        NOM: "Kazakhstan",
+    },
+    {
+        CODE: "KE",
+        NOM: "Kenya",
+    },
+    {
+        CODE: "KI",
+        NOM: "Kiribati",
+    },
+    {
+        CODE: "KP",
+        NOM: "Corée du Nord",
+    },
+    {
+        CODE: "KR",
+        NOM: "Corée du Sud",
+    },
+    {
+        CODE: "XK",
+        NOM: "Kosovo",
+    },
+    {
+        CODE: "KW",
+        NOM: "Koweït",
+    },
+    {
+        CODE: "KG",
+        NOM: "Kirghizstan",
+    },
+    {
+        CODE: "LA",
+        NOM: "Laos",
+    },
+    {
+        CODE: "LV",
+        NOM: "Lettonie",
+    },
+    {
+        CODE: "LB",
+        NOM: "Liban",
+    },
+    {
+        CODE: "LS",
+        NOM: "Lesotho",
+    },
+    {
+        CODE: "LR",
+        NOM: "Liberia",
+    },
+    {
+        CODE: "LY",
+        NOM: "Libye",
+    },
+    {
+        CODE: "LI",
+        NOM: "Liechtenstein",
+    },
+    {
+        CODE: "LT",
+        NOM: "Lituanie",
+    },
+    {
+        CODE: "LU",
+        NOM: "Luxembourg",
+    },
+    {
+        CODE: "MO",
+        NOM: "Macao",
+    },
+    {
+        CODE: "MK",
+        NOM: "Macédoine du Nord",
+    },
+    {
+        CODE: "MG",
+        NOM: "Madagascar",
+    },
+    {
+        CODE: "MW",
+        NOM: "Malawi",
+    },
+    {
+        CODE: "MY",
+        NOM: "Malaisie",
+    },
+    {
+        CODE: "MV",
+        NOM: "Maldives",
+    },
+    {
+        CODE: "ML",
+        NOM: "Mali",
+    },
+    {
+        CODE: "MT",
+        NOM: "Malte",
+    },
+    {
+        CODE: "MH",
+        NOM: "Îles Marshall",
+    },
+    {
+        CODE: "MQ",
+        NOM: "Martinique",
+    },
+    {
+        CODE: "MR",
+        NOM: "Mauritanie",
+    },
+    {
+        CODE: "MU",
+        NOM: "Maurice",
+    },
+    {
+        CODE: "YT",
+        NOM: "Mayotte",
+    },
+    {
+        CODE: "MX",
+        NOM: "Mexique",
+    },
+    {
+        CODE: "FM",
+        NOM: "Micronésie",
+    },
+    {
+        CODE: "MD",
+        NOM: "Moldavie",
+    },
+    {
+        CODE: "MC",
+        NOM: "Monaco",
+    },
+    {
+        CODE: "MN",
+        NOM: "Mongolie",
+    },
+    {
+        CODE: "ME",
+        NOM: "Monténégro",
+    },
+    {
+        CODE: "MS",
+        NOM: "Montserrat",
+    },
+    {
+        CODE: "MA",
+        NOM: "Maroc",
+    },
+    {
+        CODE: "MZ",
+        NOM: "Mozambique",
+    },
+    {
+        CODE: "MM",
+        NOM: "Myanmar (Birmanie)",
+    },
+    {
+        CODE: "NA",
+        NOM: "Namibie",
+    },
+    {
+        CODE: "NR",
+        NOM: "Nauru",
+    },
+    {
+        CODE: "NP",
+        NOM: "Népal",
+    },
+    {
+        CODE: "NL",
+        NOM: "Pays-Bas",
+    },
+    {
+        CODE: "NC",
+        NOM: "Nouvelle-Calédonie",
+    },
+    {
+        CODE: "NZ",
+        NOM: "Nouvelle-Zélande",
+    },
+    {
+        CODE: "NI",
+        NOM: "Nicaragua",
+    },
+    {
+        CODE: "NE",
+        NOM: "Niger",
+    },
+    {
+        CODE: "NG",
+        NOM: "Nigeria",
+    },
+    {
+        CODE: "NU",
+        NOM: "Niue",
+    },
+    {
+        CODE: "NF",
+        NOM: "Île Norfolk",
+    },
+    {
+        CODE: "MP",
+        NOM: "Îles Mariannes du Nord",
+    },
+    {
+        CODE: "NO",
+        NOM: "Norvège",
+    },
+    {
+        CODE: "OM",
+        NOM: "Oman",
+    },
+    {
+        CODE: "PK",
+        NOM: "Pakistan",
+    },
+    {
+        CODE: "PW",
+        NOM: "Palaos",
+    },
+    {
+        CODE: "PS",
+        NOM: "Palestine",
+    },
+    {
+        CODE: "PA",
+        NOM: "Panama",
+    },
+    {
+        CODE: "PG",
+        NOM: "Papouasie-Nouvelle-Guinée",
+    },
+    {
+        CODE: "PY",
+        NOM: "Paraguay",
+    },
+    {
+        CODE: "PE",
+        NOM: "Pérou",
+    },
+    {
+        CODE: "PH",
+        NOM: "Philippines",
+    },
+    {
+        CODE: "PN",
+        NOM: "Îles Pitcairn",
+    },
+    {
+        CODE: "PL",
+        NOM: "Pologne",
+    },
+    {
+        CODE: "PT",
+        NOM: "Portugal",
+    },
+    {
+        CODE: "PR",
+        NOM: "Porto Rico",
+    },
+    {
+        CODE: "QA",
+        NOM: "Qatar",
+    },
+    {
+        CODE: "RE",
+        NOM: "La Réunion",
+    },
+    {
+        CODE: "RO",
+        NOM: "Roumanie",
+    },
+    {
+        CODE: "RU",
+        NOM: "Russie",
+    },
+    {
+        CODE: "RW",
+        NOM: "Rwanda",
+    },
+    {
+        CODE: "BL",
+        NOM: "Saint-Barthélemy",
+    },
+    {
+        CODE: "SH",
+        NOM: "Sainte-Hélène",
+    },
+    {
+        CODE: "KN",
+        NOM: "Saint-Christophe-et-Niévès",
+    },
+    {
+        CODE: "LC",
+        NOM: "Sainte-Lucie",
+    },
+    {
+        CODE: "MF",
+        NOM: "Saint-Martin",
+    },
+    {
+        CODE: "PM",
+        NOM: "Saint-Pierre-et-Miquelon",
+    },
+    {
+        CODE: "VC",
+        NOM: "Saint-Vincent-et-les Grenadines",
+    },
+    {
+        CODE: "WS",
+        NOM: "Samoa",
+    },
+    {
+        CODE: "SM",
+        NOM: "Saint-Marin",
+    },
+    {
+        CODE: "ST",
+        NOM: "Sao Tomé-et-Principe",
+    },
+    {
+        CODE: "SA",
+        NOM: "Arabie saoudite",
+    },
+    {
+        CODE: "SN",
+        NOM: "Sénégal",
+    },
+    {
+        CODE: "RS",
+        NOM: "Serbie",
+    },
+    {
+        CODE: "SC",
+        NOM: "Seychelles",
+    },
+    {
+        CODE: "SL",
+        NOM: "Sierra Leone",
+    },
+    {
+        CODE: "SG",
+        NOM: "Singapour",
+    },
+    {
+        CODE: "SX",
+        NOM: "Saint-Martin (partie néerlandaise)",
+    },
+    {
+        CODE: "SK",
+        NOM: "Slovaquie",
+    },
+    {
+        CODE: "SI",
+        NOM: "Slovénie",
+    },
+    {
+        CODE: "SB",
+        NOM: "Îles Salomon",
+    },
+    {
+        CODE: "SO",
+        NOM: "Somalie",
+    },
+    {
+        CODE: "ZA",
+        NOM: "Afrique du Sud",
+    },
+    {
+        CODE: "GS",
+        NOM: "Géorgie du Sud-et-les Îles Sandwich du Sud",
+    },
+    {
+        CODE: "SS",
+        NOM: "Soudan du Sud",
+    },
+    {
+        CODE: "ES",
+        NOM: "Espagne",
+    },
+    {
+        CODE: "LK",
+        NOM: "Sri Lanka",
+    },
+    {
+        CODE: "SD",
+        NOM: "Soudan",
+    },
+    {
+        CODE: "SR",
+        NOM: "Suriname",
+    },
+    {
+        CODE: "SJ",
+        NOM: "Svalbard et Jan Mayen",
+    },
+    {
+        CODE: "SE",
+        NOM: "Suède",
+    },
+    {
+        CODE: "CH",
+        NOM: "Suisse",
+    },
+    {
+        CODE: "SY",
+        NOM: "Syrie",
+    },
+    {
+        CODE: "TW",
+        NOM: "Taïwan",
+    },
+    {
+        CODE: "TJ",
+        NOM: "Tadjikistan",
+    },
+    {
+        CODE: "TZ",
+        NOM: "Tanzanie",
+    },
+    {
+        CODE: "TH",
+        NOM: "Thaïlande",
+    },
+    {
+        CODE: "TL",
+        NOM: "Timor oriental",
+    },
+    {
+        CODE: "TG",
+        NOM: "Togo",
+    },
+    {
+        CODE: "TK",
+        NOM: "Tokelau",
+    },
+    {
+        CODE: "TO",
+        NOM: "Tonga",
+    },
+    {
+        CODE: "TT",
+        NOM: "Trinité-et-Tobago",
+    },
+    {
+        CODE: "TN",
+        NOM: "Tunisie",
+    },
+    {
+        CODE: "TR",
+        NOM: "Turquie",
+    },
+    {
+        CODE: "TM",
+        NOM: "Turkménistan",
+    },
+    {
+        CODE: "TC",
+        NOM: "Îles Turques-et-Caïques",
+    },
+    {
+        CODE: "TV",
+        NOM: "Tuvalu",
+    },
+    {
+        CODE: "UM",
+        NOM: "Îles mineures éloignées des États-Unis",
+    },
+    {
+        CODE: "UG",
+        NOM: "Ouganda",
+    },
+    {
+        CODE: "UA",
+        NOM: "Ukraine",
+    },
+    {
+        CODE: "AE",
+        NOM: "Émirats arabes unis",
+    },
+    {
+        CODE: "GB",
+        NOM: "Royaume-Uni",
+    },
+    {
+        CODE: "US",
+        NOM: "États-Unis",
+    },
+    {
+        CODE: "UY",
+        NOM: "Uruguay",
+    },
+    {
+        CODE: "UZ",
+        NOM: "Ouzbékistan",
+    },
+    {
+        CODE: "VU",
+        NOM: "Vanuatu",
+    },
+    {
+        CODE: "VA",
+        NOM: "État de la Cité du Vatican",
+    },
+    {
+        CODE: "VE",
+        NOM: "Venezuela",
+    },
+    {
+        CODE: "VN",
+        NOM: "Viêt Nam",
+    },
+    {
+        CODE: "VG",
+        NOM: "Îles Vierges britanniques",
+    },
+    {
+        CODE: "VI",
+        NOM: "Îles Vierges des États-Unis",
+    },
+    {
+        CODE: "WF",
+        NOM: "Wallis-et-Futuna",
+    },
+    {
+        CODE: "EH",
+        NOM: "Sahara occidental",
+    },
+    {
+        CODE: "YE",
+        NOM: "Yémen",
+    },
+    {
+        CODE: "ZM",
+        NOM: "Zambie",
+    },
+    {
+        CODE: "ZW",
+        NOM: "Zimbabwe",
+    },
+];
+
+export function getCountry(code: string) {
+    const country = countries.find((country) => country.CODE === code);
+    return country?.NOM ?? "";
+}
+
+export function getCode(countryName: string | undefined) {
+    if (!countryName) return undefined;
+    const country = countries.find((country) =>
+        country.NOM.includes(countryName)
+    );
+    return country?.CODE ?? "";
+}
