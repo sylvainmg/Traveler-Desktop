@@ -96,7 +96,7 @@ export async function getTopHotels(token: string) {
 }
 
 export async function getTopAirlines(token: string) {
-    const response = await fetch(url + "hotels/topAir", {
+    const response = await fetch(url + "airlines/topAir", {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`,

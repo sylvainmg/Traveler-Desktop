@@ -16,7 +16,7 @@ export interface TopHotel {
 }
 
 export interface TopAirline {
-    hotel: string;
+    nom: string;
     reservation: number;
 }
 

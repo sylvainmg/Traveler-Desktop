@@ -6,6 +6,7 @@ import {
     getBookings,
     getClients,
     getHotels,
+    getTopAirlines,
     getTopClients,
     getTopDestinations,
     getTopHotels,
@@ -47,7 +48,7 @@ function Home() {
                 token
             )) as TopDestination[];
             let topHotels = (await getTopHotels(token)) as TopHotel[];
-            let topAirlines = (await getTopHotels(token)) as TopAirline[];
+            let topAirlines = (await getTopAirlines(token)) as TopAirline[];
 
             if (bookings.status === 403) {
                 const newToken = (await refreshToken()) as string;
@@ -217,12 +218,14 @@ function Home() {
                                 <p className="col-span-2 font-bold text-gray-100 text-center border-b-2 border-white p-1">
                                     Top 3 compagnies aériennes
                                 </p>
+
                                 <div className="text-center font-semibold text-gray-100 bg-blue-400/10">
                                     Hôtels
                                 </div>
                                 <div className="text-center font-semibold text-gray-100 bg-blue-400/10 border-white border-r-2">
                                     Réservations
                                 </div>
+
                                 <div className="text-center font-semibold text-gray-100 bg-blue-400/10">
                                     Compagnies aériennes
                                 </div>
@@ -253,15 +256,13 @@ function Home() {
                                 <div className="text-center">
                                     {stats.topAirlines &&
                                         stats.topAirlines.map((top) => (
-                                            <div key={top.hotel}>
-                                                {top.hotel}
-                                            </div>
+                                            <div key={top.nom}>{top.nom}</div>
                                         ))}
                                 </div>
                                 <div className="text-center">
                                     {stats.topAirlines &&
                                         stats.topAirlines.map((top) => (
-                                            <div key={top.hotel}>
+                                            <div key={top.nom}>
                                                 {top.reservation}
                                             </div>
                                         ))}
