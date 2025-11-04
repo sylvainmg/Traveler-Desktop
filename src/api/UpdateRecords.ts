@@ -13,6 +13,7 @@ export async function UpdateAirline(token: string, newAirline: NewRecord) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
         body: JSON.stringify(newAirline),
     });

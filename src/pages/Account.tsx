@@ -6,6 +6,7 @@ import AdminFetch from "../api/AdminFetch";
 import { FaSpinner, FaUser } from "react-icons/fa";
 import Button from "../components/Button";
 import Logout from "../api/Logout";
+import { LogOut } from "lucide-react";
 
 function Account({
     setShowNavbar,
@@ -40,14 +41,14 @@ function Account({
         );
 
     return (
-        <div className="flex flex-col h-screen justify-center flex-1 pb-72">
-            <div className="grid grid-cols-3 bg-cyan-500/20 py-12 rounded-b-4xl border">
+        <div className="flex flex-col h-screen justify-center flex-1 pb-72 bg-gradient-to-br from-blue-400 via-cyan-300 to-blue-200">
+            <div className="grid grid-cols-3 bg-gradient-to-bl from-blue-50 via-cyan-200 to-blue-300 text-white text-shadow-lg shadow-lg ml-50 mr-50 pt-20 pb-30 py-12 rounded-b-4xl border-white border">
                 <div className="flex justify-center items-center">
                     <div>
                         <div className="flex flex-row items-end">
                             <FaUser
                                 size={120}
-                                className="border-2 rounded-full"
+                                className="text-gray-50 border-2 rounded-full"
                             />
                         </div>
                     </div>
@@ -82,7 +83,7 @@ function Account({
             </div>
             <div className="w-full flex justify-center items-center mt-5">
                 <Button
-                    className="bg-red-400 hover:bg-red-500 rounded-xl transition-colors duration-300 font-semibold text-white px-4 py-2"
+                    className="border-2 p-2 mt-5 hover:bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-200 rounded-xl transition-colors duration-300 font-semibold text-white px-4 py-2"
                     onClick={async () => {
                         const status = await Logout(
                             token,
@@ -94,7 +95,7 @@ function Account({
                         }
                     }}
                 >
-                    <p>Se déconnecter</p>
+                    <p>Se déconnecter<LogOut className="inline w-4 h-4 ml-1 mb-1"/></p>
                 </Button>
             </div>
         </div>

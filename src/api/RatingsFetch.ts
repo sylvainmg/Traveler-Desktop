@@ -9,6 +9,7 @@ export async function HotelRatingsFetch(token: string, id: number) {
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
+            "ngrok-skip-browser-warning": "69420",
         },
         body: JSON.stringify({ id }),
     });

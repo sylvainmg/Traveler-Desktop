@@ -10,6 +10,7 @@ export async function getBookings(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = await response.json();
@@ -23,6 +24,7 @@ export async function getClients(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = await response.json();
@@ -36,6 +38,7 @@ export async function getHotels(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = await response.json();
@@ -49,6 +52,7 @@ export async function getAirlines(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = await response.json();
@@ -62,6 +66,7 @@ export async function getTopClients(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = (await response.json()) as TopClient[];
@@ -75,6 +80,7 @@ export async function getTopDestinations(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = (await response.json()) as TopDestination[];
@@ -88,6 +94,7 @@ export async function getTopHotels(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = (await response.json()) as TopHotel[];
@@ -101,6 +108,7 @@ export async function getTopAirlines(token: string) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
     });
     const data = (await response.json()) as TopAirline[];
@@ -114,6 +122,7 @@ export async function getBookingsStats(token: string, year: number) {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
         },
         body: JSON.stringify({ year }),
     });
