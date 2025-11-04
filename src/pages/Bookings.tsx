@@ -41,13 +41,13 @@ function Bookings() {
     }, [options]);
 
     return (
-        <div className="grid grid-cols-3 h-screen overflow-hidden">
+        <div className="grid grid-cols-3 h-screen overflow-hidde bg-gradient-to-br from-white via-sky-100 to-blue-100">
             {/* Filtres de recherche */}
             <div className="col-span-3 mb-3">
-                <p className="ml-5">Filtres de recherche</p>
+                <p className="font-bold text-slate-700 text-center pt-2">Filtres de recherche</p>
                 <div className="grid grid-cols-4">
                     <div>
-                        <p className="text-center">Limite</p>
+                        <p className="font-semibold text-slate-500 text-center">Limite</p>
                         <div className="flex justify-center">
                             <input
                                 type="number"
@@ -55,7 +55,7 @@ function Bookings() {
                                 name=""
                                 id=""
                                 className={
-                                    "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                    "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                     inputStyle
                                 }
                                 value={options.limit}
@@ -69,7 +69,7 @@ function Bookings() {
                         </div>
                     </div>
                     <div>
-                        <p className="text-center">Date de réservation</p>
+                        <p className="font-semibold text-slate-500 text-center">Date de réservation</p>
                         <div className="grid grid-cols-3">
                             <div className="col-span-1 flex justify-end">
                                 <input
@@ -77,7 +77,7 @@ function Bookings() {
                                     name=""
                                     id=""
                                     className={
-                                        "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                        "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                         inputStyle
                                     }
                                     placeholder="yyyy"
@@ -100,7 +100,7 @@ function Bookings() {
                                     name=""
                                     id=""
                                     className={
-                                        "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                        "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                         inputStyle
                                     }
                                     placeholder="mm"
@@ -123,7 +123,7 @@ function Bookings() {
                                     name=""
                                     id=""
                                     className={
-                                        "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                        "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                         inputStyle
                                     }
                                     placeholder="dd"
@@ -143,14 +143,14 @@ function Bookings() {
                         </div>
                     </div>
                     <div>
-                        <p className="text-center">Destination</p>
+                        <p className="font-semibold text-slate-500 text-center">Destination</p>
                         <div className="flex justify-center">
                             <input
                                 type="text"
                                 name=""
                                 id=""
                                 className={
-                                    "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                    "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                     inputStyle
                                 }
                                 value={options.destination}
@@ -164,7 +164,7 @@ function Bookings() {
                         </div>
                     </div>
                     <div>
-                        <p className="text-center">Numéro client</p>
+                        <p className="font-semibold text-slate-500 text-center">Numéro client</p>
                         <div className="flex justify-center">
                             <input
                                 type="number"
@@ -172,7 +172,7 @@ function Bookings() {
                                 id=""
                                 min={1}
                                 className={
-                                    "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                    "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                     inputStyle
                                 }
                                 value={options.num_client || ""}
@@ -192,13 +192,13 @@ function Bookings() {
                     bookings.map((booking) => (
                         <div
                             key={booking.num_reservation}
-                            className="flex flex-col justify-center items-center bg-purple-400/30 p-3 rounded-4xl border-2 border-purple-600"
+                            className="flex flex-col justify-center items-center bg-blue-300/20 p-3 rounded-4xl border-2 border-blue-200 ml-2 mr-2"
                         >
                             <div className="grid grid-cols-2 gap-2">
                                 <div className="col-span-2 text-center border-b-2">
                                     Réservation numéro {booking.num_reservation}{" "}
                                     {booking.categorie === "Individuel" ? (
-                                        <p className="text-orange-400 font-bold">
+                                        <p className="text-violet-400 font-bold">
                                             {booking.categorie}
                                         </p>
                                     ) : (
@@ -231,7 +231,7 @@ function Bookings() {
                                     </div>
                                     <div className="grid grid-cols-2">
                                         <p className="text-center">E-mail</p>
-                                        <p className="text-center text-fuchsia-500">
+                                        <p className="text-center text-fuchsia-800">
                                             {booking.email}
                                         </p>
                                     </div>
@@ -255,7 +255,7 @@ function Bookings() {
                                         </div>
                                         <div className="col-span-2 grid grid-cols-2 p-2">
                                             <p>Date</p>
-                                            <p className="text-red-400 font-bold">
+                                            <p className="text-red-800 font-bold">
                                                 {new Date(
                                                     booking.date_vol_aller
                                                 ).toLocaleDateString()}
@@ -263,7 +263,7 @@ function Bookings() {
                                         </div>
                                         <div className="col-span-2 grid grid-cols-2 p-2">
                                             <p>Heure</p>
-                                            <p className="text-orange-400 font-bold">
+                                            <p className="text-orange-900 font-bold">
                                                 {booking.heure_depart_aller}
                                             </p>
                                         </div>
@@ -291,7 +291,7 @@ function Bookings() {
                                         </div>
                                         <div className="col-span-2 grid grid-cols-2 p-2">
                                             <p>Date</p>
-                                            <p className="text-red-400 font-bold">
+                                            <p className="text-red-800 font-bold">
                                                 {new Date(
                                                     booking.date_vol_retour
                                                 ).toLocaleDateString()}
@@ -299,7 +299,7 @@ function Bookings() {
                                         </div>
                                         <div className="col-span-2 grid grid-cols-2 p-2">
                                             <p>Heure</p>
-                                            <p className="text-orange-400 font-bold">
+                                            <p className="text-orange-900 font-bold">
                                                 {booking.heure_depart_retour}
                                             </p>
                                         </div>
@@ -315,7 +315,7 @@ function Bookings() {
                                     </div>
                                 </div>
 
-                                <p className="col-span-2 text-center font-bold border-b-2">
+                                <p className="col-span-2 text-center font-bold text-slate-800 border-b-2">
                                     Hôtel
                                 </p>
                                 <div className="col-span-2 grid grid-cols-2 items-center">

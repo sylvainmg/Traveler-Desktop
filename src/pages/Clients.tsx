@@ -58,17 +58,18 @@ function Clients({
         fetchClients();
     }, [token, options, refreshToken, navigate, setShowNavbar]);
 
-    return (
-        <React.Fragment>
+return (
+    <React.Fragment>
+        <div className="bg-gradient-to-br from-white via-sky-100 to-blue-100">   
             <div>
-                <p className="ml-5">Filtres de recherche</p>
+                <p className="font-bold text-slate-700 text-xl mb-3 text-center pt-2">Filtres de recherche</p>
                 <div className="grid grid-cols-6 mb-3">
                     <div className="col-span-1 flex flex-col items-center">
-                        <p className="text-center">Limite</p>
+                        <p className="font-semibold text-slate-500 text-center">Limite</p>
                         <input
                             type="number"
                             className={
-                                "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                 inputStyle
                             }
                             min={1}
@@ -82,11 +83,11 @@ function Clients({
                         />
                     </div>
                     <div className="col-span-1 flex flex-col items-center">
-                        <p className="text-center">Identifiant</p>
+                        <p className="font-semibold text-slate-500 text-center">Identifiant</p>
                         <input
                             type="number"
                             className={
-                                "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                 inputStyle
                             }
                             min={1}
@@ -100,10 +101,10 @@ function Clients({
                         />
                     </div>
                     <div className="col-span-1 flex flex-col items-center">
-                        <p className="text-center">Nom</p>
+                        <p className="font-semibold text-slate-500 text-center">Nom</p>
                         <input
                             type="text"
-                            className="border-2 items-center outline-none focus:border-blue-600 text-center"
+                            className="border-2 border-gray-300 rounded-xl items-center outline-none focus:border-blue-600 text-center"
                             value={options.nom}
                             onChange={(e) =>
                                 setoptions({
@@ -114,10 +115,10 @@ function Clients({
                         />
                     </div>
                     <div className="col-span-1 flex flex-col items-center">
-                        <p className="text-center">Prénoms</p>
+                        <p className="font-semibold text-slate-500 text-center">Prénoms</p>
                         <input
                             type="text"
-                            className="border-2 items-center outline-none focus:border-blue-600 text-center"
+                            className="border-2 border-gray-300 rounded-xl items-center outline-none focus:border-blue-600 text-center"
                             value={options.prenom}
                             onChange={(e) =>
                                 setoptions({
@@ -128,10 +129,10 @@ function Clients({
                         />
                     </div>
                     <div className="col-span-1 flex flex-col items-center">
-                        <p className="text-center">E-mail</p>
+                        <p className="font-semibold text-slate-500 text-center">E-mail</p>
                         <input
                             type="text"
-                            className="border-2 items-center outline-none focus:border-blue-600 text-center"
+                            className="border-2 border-gray-300 rounded-xl items-center outline-none focus:border-blue-600 text-center"
                             value={options.email}
                             onChange={(e) =>
                                 setoptions({
@@ -142,10 +143,10 @@ function Clients({
                         />
                     </div>
                     <div className="col-span-1 flex flex-col items-center">
-                        <p className="text-center">Pays</p>
+                        <p className="font-semibold text-slate-500 text-center">Pays</p>
                         <input
                             type="text"
-                            className="border-2 items-center outline-none focus:border-blue-600 text-center"
+                            className="border-2 border-gray-300 rounded-xl items-center outline-none focus:border-blue-600 text-center"
                             value={options.code}
                             onChange={(e) =>
                                 setoptions({
@@ -160,19 +161,19 @@ function Clients({
             <div className="flex flex-col h-screen overflow-hidden">
                 {/* Headers */}
                 <div className="grid grid-cols-5">
-                    <div className="col-span-1 text-center font-bold bg-gray-400/40 p-2">
+                    <div className="col-span-1 text-center font-bold text-slate-500 bg-blue-600/10 p-2">
                         Identifiant
                     </div>
-                    <div className="col-span-1 text-center font-bold bg-gray-400/40 p-2">
+                    <div className="col-span-1 text-center font-bold text-slate-500 bg-blue-600/10 p-2">
                         Nom
                     </div>
-                    <div className="col-span-1 text-center font-bold bg-gray-400/40 p-2">
+                    <div className="col-span-1 text-center font-bold text-slate-500 bg-blue-600/10 p-2">
                         Prénoms
                     </div>
-                    <div className="col-span-1 text-center font-bold bg-gray-400/40 p-2">
+                    <div className="col-span-1 text-center font-bold text-slate-500 bg-blue-600/10 p-2">
                         E-mail
                     </div>
-                    <div className="col-span-1 text-center font-bold bg-gray-400/40 p-2">
+                    <div className="col-span-1 text-center font-bold text-slate-500 bg-blue-600/10 p-2">
                         Pays
                     </div>
                 </div>
@@ -198,7 +199,7 @@ function Clients({
                             ))}
                         </ScrollArea>
                     ) : (
-                        <p className="flex justify-center mt-46">
+                        <p className="flex justify-center text-slate-500 font-bold mt-46">
                             Aucun résultat.
                         </p>
                     )
@@ -217,8 +218,9 @@ function Clients({
                         : "Aucun résultat"}
                 </div>
             </div>
-        </React.Fragment>
-    );
+        </div>
+    </React.Fragment>
+);
 }
 
 export default Clients;

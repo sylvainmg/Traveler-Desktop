@@ -26,6 +26,7 @@ import { AirlineRatingsFetch, HotelRatingsFetch } from "../api/RatingsFetch";
 import type { HotelRating } from "../models/hotel.model";
 import setStars from "../utils/setStars";
 import type { AirlineRating } from "../models/airline.model";
+import { ArrowLeftFromLine, Check } from "lucide-react";
 
 Modal.setAppElement("#root");
 
@@ -126,17 +127,18 @@ function Partenariats() {
     return (
         <React.Fragment>
             {/* Modal Edit */}
+        <div className="bg-gradient-to-br from-white via-sky-100 to-blue-100">    
             <Modal
                 isOpen={isOpenEdit}
                 onRequestClose={() => setIsOpenEdit(false)}
             >
                 {select !== "Hotel" ? (
-                    <div className="flex h-full flex-col justify-center items-center">
-                        <p className="text-center mb-3 font-semibold">
+                    <div className="flex h-full flex-col justify-center items-center bg-gradient-to-br from-blue-400 via-cyan-300 to-blue-200 rounded-4xl border-2 border-cyan-600">
+                        <p className="text-white text-center mb-20 text-3xl font-semibold">
                             Mise à jour de la convention N°
                             {newAirline?.num_convention} de compagnie aérienne
                         </p>
-                        <div className="grid grid-cols-3">
+                        <div className="grid grid-cols-3 gap-5 text-blue-800 bg-gradient-to-tl from-gray-300 via-white to-gray-100 rounded-2xl p-20 font-semibold text-xl">
                             <div className="flex flex-col items-center">
                                 <p>Jour</p>
                                 <input
@@ -145,7 +147,7 @@ function Partenariats() {
                                     id=""
                                     min={1}
                                     max={31}
-                                    className="border-2 w-1/2 placeholder:text-center"
+                                    className="border-2 rounded-xl shadow-lg p-2 w-1/2 placeholder:text-center hover:bg-gray-100"
                                     placeholder="dd"
                                     value={newAirline?.day || ""}
                                     onChange={(e) =>
@@ -164,7 +166,7 @@ function Partenariats() {
                                     id=""
                                     min={1}
                                     max={12}
-                                    className="border-2 w-1/2 placeholder:text-center"
+                                    className="border-2 rounded-xl shadow-lg p-2 w-1/2 placeholder:text-center hover:bg-gray-100"
                                     placeholder="mm"
                                     value={newAirline?.month || ""}
                                     onChange={(e) =>
@@ -181,7 +183,8 @@ function Partenariats() {
                                     type="number"
                                     name=""
                                     id=""
-                                    className="border-2 w-1/2 placeholder:text-center"
+                                    min={0}
+                                    className="border-2 rounded-xl shadow-lg p-2 w-1/2 placeholder:text-center hover:bg-gray-100"
                                     placeholder="yyyy"
                                     value={newAirline?.year || ""}
                                     onChange={(e) =>
@@ -193,42 +196,48 @@ function Partenariats() {
                                 />
                             </div>
                         </div>
-                        <Button
-                            className="rounded-2xl mt-5 bg-green-400 px-4 py-2 hover:bg-green-500 hover:text-gray-200 transition-colors duration-300"
-                            onClick={async () => {
-                                if (
-                                    !token ||
-                                    !newAirline.day ||
-                                    !newAirline.month ||
-                                    !newAirline.year
-                                )
-                                    return alert("Données manquantes !");
-                                UpdateAirline(token, newAirline);
-                                setIsOpenEdit(false);
-                                setNewAirline({
-                                    year: null,
-                                    month: null,
-                                    day: null,
-                                    num_convention: null,
-                                });
-                            }}
-                        >
-                            <p className="font-semibold">Valider</p>
-                        </Button>
-                        <Button
-                            className="rounded-2xl mt-3 bg-red-400 px-4 py-2 hover:bg-red-500 transition-colors duration-300"
-                            onClick={() => setIsOpenEdit(false)}
-                        >
-                            <p className="font-semibold">Quitter</p>
-                        </Button>
+                        <div className="grid grid-cols-2 gap-5 mt-10">
+                            <Button
+                                className="col-span-1 border-2 border-white w-xl rounded-2xl text-xl text-blue-50 mt-7 px-4 py-2 hover:bg-gradient-to-br from-red-200 via-red-300 to-red-200 hover:text-gray-100 transition-colors duration-300"
+                                onClick={() => setIsOpenEdit(false)}
+                            >
+                                <p className="font-semibold">
+                                    <ArrowLeftFromLine className="inline mr-1 mb-1"/> Quitter
+                                </p>
+                            </Button>
+                            <Button
+                                className="col-span-1 border-2 border-white rounded-2xl text-xl text-blue-50 mt-7 px-4 py-2 hover:bg-gradient-to-br from-green-200 via-green-300 to-200 hover:text-gray-200 transition-colors duration-300"
+                                onClick={async () => {
+                                    if (
+                                        !token ||
+                                        !newAirline.day ||
+                                        !newAirline.month ||
+                                        !newAirline.year
+                                    )
+                                        return alert("Données manquantes !");
+                                    UpdateAirline(token, newAirline);
+                                    setIsOpenEdit(false);
+                                    setNewAirline({
+                                        year: null,
+                                        month: null,
+                                        day: null,
+                                        num_convention: null,
+                                    });
+                                }}
+                            >
+                                <p className="font-semibold">
+                                    <Check className="inline mr-1 mb-1"/>Valider
+                                </p>
+                            </Button>
+                        </div>
                     </div>
                 ) : (
-                    <div className="flex h-full flex-col justify-center items-center">
-                        <p className="text-center mb-3 font-semibold">
+                    <div className="flex h-full flex-col justify-center items-center bg-gradient-to-br from-blue-400 via-cyan-300 to-blue-200 rounded-4xl border-2 border-cyan-600">
+                        <p className="text-white text-center mb-20 text-3xl font-semibold">
                             Mise à jour de la convention N°
                             {newHotel?.num_convention} d'hôtel
                         </p>
-                        <div className="grid grid-cols-3">
+                        <div className="grid grid-cols-3 gap-5 text-blue-800 bg-gradient-to-tl from-gray-300 via-white to-gray-100 rounded-2xl p-20 font-semibold text-xl">
                             <div className="flex flex-col items-center">
                                 <p>Jour</p>
                                 <input
@@ -237,7 +246,7 @@ function Partenariats() {
                                     id=""
                                     min={1}
                                     max={31}
-                                    className="border-2 w-1/2 placeholder:text-center"
+                                    className="border-2 rounded-xl shadow-lg p-2 w-1/2 placeholder:text-center hover:bg-gray-100"
                                     placeholder="dd"
                                     value={newHotel?.day || ""}
                                     onChange={(e) =>
@@ -256,7 +265,7 @@ function Partenariats() {
                                     id=""
                                     min={1}
                                     max={12}
-                                    className="border-2 w-1/2 placeholder:text-center"
+                                    className="border-2 rounded-xl shadow-lg p-2 w-1/2 placeholder:text-center hover:bg-gray-100"
                                     placeholder="mm"
                                     value={newHotel?.month || ""}
                                     onChange={(e) =>
@@ -273,7 +282,8 @@ function Partenariats() {
                                     type="number"
                                     name=""
                                     id=""
-                                    className="border-2 w-1/2 placeholder:text-center"
+                                    min={1}
+                                    className="border-2 rounded-xl shadow-lg p-2 w-1/2 placeholder:text-center hover:bg-gray-100"
                                     placeholder="yyyy"
                                     value={newHotel?.year || ""}
                                     onChange={(e) =>
@@ -285,8 +295,17 @@ function Partenariats() {
                                 />
                             </div>
                         </div>
+                        <div className="grid grid-cols-2 gap-5 mt-10">
                         <Button
-                            className="rounded-2xl mt-5 bg-green-400 px-4 py-2 hover:bg-green-500 hover:text-gray-200 transition-colors duration-300"
+                            className="col-span-1 border-2 border-white w-xl rounded-2xl text-xl text-blue-50 mt-7 px-4 py-2 hover:bg-gradient-to-br from-red-200 via-red-300 to-red-200 hover:text-gray-100 transition-colors duration-300"
+                            onClick={() => setIsOpenEdit(false)}
+                        >
+                            <p className="font-semibold text-white">
+                                <ArrowLeftFromLine className="inline mr-1 mb-1"/>Quitter
+                            </p>
+                        </Button>   
+                        <Button
+                            className="col-span-1 border-2 border-white rounded-2xl text-xl text-blue-50 mt-7 px-4 py-2 hover:bg-gradient-to-br from-green-200 via-green-300 to-200 hover:text-gray-200 transition-colors duration-300"
                             onClick={async () => {
                                 if (
                                     !token ||
@@ -305,14 +324,12 @@ function Partenariats() {
                                 });
                             }}
                         >
-                            <p className="font-semibold text-white">Valider</p>
+                            <p className="font-semibold text-white">
+                                <Check className="inline mr-1 mb-1"/>Valider
+                            </p>
                         </Button>
-                        <Button
-                            className="rounded-2xl mt-3 bg-red-400 px-4 py-2 hover:bg-red-500 transition-colors duration-300"
-                            onClick={() => setIsOpenEdit(false)}
-                        >
-                            <p className="font-semibold text-white">Quitter</p>
-                        </Button>
+                        
+                        </div>
                     </div>
                 )}
             </Modal>
@@ -323,8 +340,8 @@ function Partenariats() {
                 onRequestClose={() => setIsOpenRating(false)}
             >
                 {select === "Hotel" ? (
-                    <div className="h-full flex flex-col justify-center items-center">
-                        <p className="font-semibold w-full text-center mb-12 text-xl">
+                    <div className="h-full flex flex-col justify-center rounded-2xl items-center bg-gradient-to-br from-amber-200 via-300 to-amber-400">
+                        <p className="font-bold text-blue-800 w-full text-center mb-12 text-3xl">
                             {hotelRatings &&
                                 hotels &&
                                 hotels.find((hotel) => hotel.id_hotel === id)
@@ -333,10 +350,10 @@ function Partenariats() {
                         <div className="grid grid-cols-2">
                             {hotelRatings && (
                                 <React.Fragment>
-                                    <p className="text-center border-b-2 pb-1.5 mb-1.5">
+                                    <p className="text-gray-500 text-center text-xl border-b-2 pb-1.5 mb-1.5">
                                         Avis
                                     </p>
-                                    <p className="text-center border-b-2 pb-1.5 mb-1.5">
+                                    <p className="text-gray-500 text-center border-b-2 pb-1.5 mb-1.5">
                                         Note
                                     </p>
                                 </React.Fragment>
@@ -344,7 +361,7 @@ function Partenariats() {
 
                             {hotelRatings ? (
                                 <ScrollArea className="grid grid-cols-2 col-span-2 h-48">
-                                    <div className="text-center">
+                                    <div className="text-gray-800 text-center">
                                         {(hotelRatings &&
                                             hotelRatings.ratings.map(
                                                 (rating) => (
@@ -356,7 +373,7 @@ function Partenariats() {
                                                 )
                                             )) || <p>Aucun résultat.</p>}
                                     </div>
-                                    <div className="text-center">
+                                    <div className="text-gray-800 text-center">
                                         {(hotelRatings &&
                                             hotelRatings.ratings.map(
                                                 (rating) => (
@@ -379,7 +396,7 @@ function Partenariats() {
                         <div className="text-center mt-10 flex gap-3">
                             {hotelRatings && (
                                 <React.Fragment>
-                                    <span>Note moyenne :</span>
+                                    <span className="text-gray-800">Note moyenne :</span>
                                     <span
                                         className={
                                             (hotelRatings &&
@@ -395,7 +412,7 @@ function Partenariats() {
                                                           hotelRatings.average
                                                               .moyenne
                                                       ) < 4
-                                                    ? "text-yellow-500"
+                                                    ? "text-yellow-50"
                                                     : "text-green-500")) ||
                                             ""
                                         }
@@ -409,15 +426,15 @@ function Partenariats() {
                             )}
                         </div>
                         <Button
-                            className="bg-red-400 px-4 py-2 rounded-2xl mt-5 font-semibold text-white hover:bg-red-500 transition-colors duration-300"
+                            className="border-2 border-blue-800 px-4 py-2 rounded-2xl mt-5 font-semibold text-blue-800 shadow-lg hover:bg-gradient-to-br from-amber-100 via-amber-200 to-amber-300 hover:text-blue-600 transition-colors duration-300"
                             onClick={() => setIsOpenRating(false)}
                         >
                             <p>Fermer</p>
                         </Button>
                     </div>
                 ) : (
-                    <div className="h-full flex flex-col justify-center items-center">
-                        <p className="font-semibold w-full text-center mb-12 text-xl">
+                    <div className="h-full flex flex-col justify-center items-center rounded-2xl bg-gradient-to-br from-amber-200 via-amber-300 to-amber-400">
+                        <p className="font-bold text-blue-800 w-full text-center mb-12 text-3xl">
                             {hotelRatings &&
                                 hotels &&
                                 hotels.find((hotel) => hotel.id_hotel === id)
@@ -426,10 +443,10 @@ function Partenariats() {
                         <div className="grid grid-cols-2">
                             {airlineRatings && (
                                 <React.Fragment>
-                                    <p className="text-center border-b-2 pb-1.5 mb-1.5">
+                                    <p className="text-gray-500 text-center text-xl border-b-2 pb-1.5 mb-1.5">
                                         Avis
                                     </p>
-                                    <p className="text-center border-b-2 pb-1.5 mb-1.5">
+                                    <p className="text-gray-500 text-xl text-center border-b-2 pb-1.5 mb-1.5">
                                         Note
                                     </p>
                                 </React.Fragment>
@@ -437,7 +454,7 @@ function Partenariats() {
 
                             {airlineRatings ? (
                                 <ScrollArea className="grid grid-cols-2 col-span-2 h-48">
-                                    <div className="text-center">
+                                    <div className="text-gray-800 text-center">
                                         {(airlineRatings &&
                                             airlineRatings.ratings.map(
                                                 (rating) => (
@@ -458,7 +475,7 @@ function Partenariats() {
                                                 )
                                             )) || <p>Aucun résultat.</p>}
                                     </div>
-                                    <div className="text-center">
+                                    <div className="text-gray-800 text-center">
                                         {(airlineRatings &&
                                             airlineRatings.ratings.map(
                                                 (rating) => (
@@ -505,7 +522,7 @@ function Partenariats() {
                                                           airlineRatings.average
                                                               .moyenne
                                                       ) < 4
-                                                    ? "text-yellow-500"
+                                                    ? "text-yellow-50"
                                                     : "text-green-500")) ||
                                             ""
                                         }
@@ -519,7 +536,7 @@ function Partenariats() {
                             )}
                         </div>
                         <Button
-                            className="bg-red-400 px-4 py-2 rounded-2xl mt-5 font-semibold text-white hover:bg-red-500 transition-colors duration-300"
+                            className="border-2 border-blue-800 px-4 py-2 rounded-2xl mt-5 font-semibold text-blue-800 hover:bg-gradient-to-br from-amber-100 via-amber-200 to-amber-300 hover:text-blue-600 transition-colors duration-300"
                             onClick={() => setIsOpenRating(false)}
                         >
                             <p>Fermer</p>
@@ -568,22 +585,22 @@ function Partenariats() {
                             select !== "Hotel" ? "border-b-2" : borderAnimation
                         }`}
                     >
-                        <FaPlane size={20} />
-                        <span>Compagnies aériennes</span>
+                        <FaPlane size={20} className="mt-1"/>
+                        <span className="pb-5 mt-6">Compagnies aériennes</span>
                     </p>
                 </div>
             </div>
             {/* Filtres de recherche */}
             <div className="grid grid-cols-3 mb-1">
                 <div className="justify-center flex flex-col items-center">
-                    <p>Limite</p>
+                    <p className="font-semibold text-slate-500">Limite</p>
                     <div className="flex justify-center">
                         <input
                             type="number"
                             name=""
                             id=""
                             className={
-                                "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                 inputStyle
                             }
                             min={1}
@@ -599,14 +616,14 @@ function Partenariats() {
                 </div>
 
                 <div className="justify-center flex flex-col items-center">
-                    <p>Identifiant</p>
+                    <p className="font-semibold text-slate-500">Identifiant</p>
                     <div className="flex justify-center">
                         <input
                             type="number"
                             name=""
                             id=""
                             className={
-                                "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                 inputStyle
                             }
                             min={1}
@@ -622,14 +639,14 @@ function Partenariats() {
                 </div>
 
                 <div className="justify-center flex flex-col items-center">
-                    <p>Année de convention</p>
+                    <p className="font-semibold text-slate-500">Année de convention</p>
                     <div className="flex justify-center">
                         <input
                             type="number"
                             name=""
                             id=""
                             className={
-                                "border-2 w-1/2 items-center outline-none focus:border-blue-600 " +
+                                "border-2 border-gray-300 rounded-xl w-1/2 items-center outline-none focus:border-blue-600 " +
                                 inputStyle
                             }
                             min={1}
@@ -751,7 +768,7 @@ function Partenariats() {
                 </div>
             ) : (
                 <div className="overflow-hidden h-screen grid grid-cols-6">
-                    <div className="grid grid-cols-6 bg-gray-400/40 fixed w-full">
+                    <div className="grid grid-cols-6 text-slate-0 bg-blue-600/10 fixed w-full">
                         <div className="text-center py-2 font-semibold">
                             Numéro de convention
                         </div>
@@ -853,6 +870,7 @@ function Partenariats() {
                     </div>
                 </div>
             )}
+        </div>
         </React.Fragment>
     );
 }
