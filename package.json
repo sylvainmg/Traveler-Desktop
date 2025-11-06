@@ -47,6 +47,7 @@
     "build": {
         "appId": "com.traveler.desktop",
         "productName": "Traveler Desktop",
+        "icon": "electron/assets/icon",
         "directories": {
             "buildResources": "public/icons",
             "output": "dist_electron"

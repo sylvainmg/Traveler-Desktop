@@ -7,6 +7,7 @@ import {
     FaComment,
     FaPen,
     FaPlane,
+    FaPlus,
     FaRegBuilding,
     FaSpinner,
 } from "react-icons/fa";
@@ -568,7 +569,7 @@ function Partenariats() {
                     )}
                 </Modal>
 
-                <div className="grid grid-cols-2 pb-3">
+                <div className="grid grid-cols-3 pb-3">
                     <div
                         className={`col-span-1 text-center cursor-pointer flex justify-center
                     `}
@@ -591,6 +592,21 @@ function Partenariats() {
                         >
                             <FaRegBuilding size={20} />
                             <span>Hôtels</span>
+                        </p>
+                    </div>
+
+                    <div
+                        className={`col-span-1 text-center cursor-pointer flex justify-center
+                    `}
+                        onClick={() => {
+                            navigate("/add");
+                        }}
+                    >
+                        <p
+                            className={`flex items-center gap-2 justify-center p-2 w-1/2 bg-emerald-400 hover:bg-emerald-300 transition-colors duration-300 ${"border-b-2 border-emerald-400"}`}
+                        >
+                            <FaPlus size={20} />
+                            <span>Ajouter</span>
                         </p>
                     </div>
 

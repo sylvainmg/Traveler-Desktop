@@ -11,6 +11,7 @@ import React from "react";
 import Login from "./pages/Login";
 import { useAuth } from "./contexts/AuthContext";
 import { FaSpinner } from "react-icons/fa";
+import AddPartenatiat from "./pages/AddPartenatiat";
 
 function App() {
     const [showNavbar, setShowNavbar] = useState(false);
@@ -57,13 +58,53 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route
                         path="/clients"
-                        element={<Clients setShowNavbar={setShowNavbar} />}
+                        element={
+                            isAuthenticated ? (
+                                <Clients setShowNavbar={setShowNavbar} />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
                     />
-                    <Route path="/bookings" element={<Bookings />} />
-                    <Route path="/partenariats" element={<Partenariats />} />
+                    <Route
+                        path="/bookings"
+                        element={
+                            isAuthenticated ? (
+                                <Bookings />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
+                    />
+                    <Route
+                        path="/partenariats"
+                        element={
+                            isAuthenticated ? (
+                                <Partenariats />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
+                    />
                     <Route
                         path="/account"
-                        element={<Account setShowNavbar={setShowNavbar} />}
+                        element={
+                            isAuthenticated ? (
+                                <Account setShowNavbar={setShowNavbar} />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
+                    />
+                    <Route
+                        path="/add"
+                        element={
+                            isAuthenticated ? (
+                                <AddPartenatiat setShowNavbar={setShowNavbar} />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
                     />
                 </Routes>
             </main>

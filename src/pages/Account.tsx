@@ -95,7 +95,10 @@ function Account({
                         }
                     }}
                 >
-                    <p>Se déconnecter<LogOut className="inline w-4 h-4 ml-1 mb-1"/></p>
+                    <p>
+                        Se déconnecter
+                        <LogOut className="inline w-4 h-4 ml-1 mb-1" />
+                    </p>
                 </Button>
             </div>
         </div>
