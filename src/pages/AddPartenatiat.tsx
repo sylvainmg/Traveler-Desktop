@@ -15,7 +15,7 @@ function AddPartenatiat({
         return () => setShowNavbar(true);
     }, []);
 
-    const [select, setSelect] = useState("Airline");
+    const [select, setSelect] = useState("Hotel");
 
     return (
         <ScrollArea className="flex flex-col h-screen justify-center items-center">
