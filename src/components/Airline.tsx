@@ -6,11 +6,12 @@ import { useAuth } from "../contexts/AuthContext";
 import AdminFetch from "../api/AdminFetch";
 import url from "../api/url";
 import Swal from "sweetalert2";
+import { ArrowLeft, Check } from "lucide-react";
 
 function Airline() {
     const navigate = useNavigate();
 
-    const [admin, setAdmin] = useState<Admin>();
+    const [_, setAdmin] = useState<Admin>();
     const { token, refreshToken } = useAuth();
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function Airline() {
 
     const [count, setCount] = useState(1);
     const [code, setCode] = useState([{ code: pays[0].CODE }]);
-    const addPays = () => setCode([...code, { code: "" }]);
+    const addCode = () => setCode([...code, { code: "" }]);
     const [name, setName] = useState("");
     const [date, setDate] = useState({
         day: new Date().getDate(),
@@ -127,7 +128,7 @@ function Airline() {
             <p className="text-center col-span-3 mt-3">Pays desservis</p>
             <p className="col-span-3 bg-black p-0.5 mb-3" />
 
-            {code.map((p, i) => (
+            {code.map((_, i) => (
                 <div
                     key={i}
                     className="col-span-3 grid grid-cols-3 items-center gap-2.5"
@@ -145,32 +146,48 @@ function Airline() {
                 </div>
             ))}
 
-            <button
-                className="col-span-3 bg-blue-400 hover:bg-blue-300 transition-colors duration-300 text-white px-4 py-2 rounded-xl mt-3"
-                onClick={() => {
-                    setCount(count + 1);
-                    addPays();
-                }}
-            >
-                Ajouter un pays
-            </button>
+            <div className="grid grid-cols-2 col-span-3 my-3 gap-3 items-center">
+                <button
+                    className="col-span-1 bg-gradient-to-r from-red-500 to-amber-600 hover:bg-red-700 hover:text-gray-200 transition-colors duration-300 text-white px-4 py-2 rounded-xl mt-3"
+                    onClick={() => {
+                        const newCode = [...code];
+                        if (newCode.length > 1) {
+                            newCode.pop();
+                            setCode(newCode);
+                        }
+                    }}
+                >
+                    Supprimer un pays
+                </button>
+                <button
+                    className="col-span-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-blue-700 hover:text-gray-200 transition-colors duration-300 text-white px-4 py-2 rounded-xl mt-3"
+                    onClick={() => {
+                        setCount(count + 1);
+                        addCode();
+                    }}
+                >
+                    Ajouter un pays
+                </button>
+            </div>
 
             <div className="grid grid-cols-2 col-span-3 my-3 gap-3 items-center">
                 <button
-                    className="col-span-1 text-white rounded-xl bg-red-400 hover:bg-red-300 transition-colors duration-300 px-4 py-2"
+                    className="col-span-1 text-white rounded-xl bg-gradient-to-br from-gray-200 to-gray-400 hover:text-gray-200 hover:bg-red-300 transition-colors duration-300 px-4 py-2"
                     onClick={() => navigate("/partenariats")}
                 >
+                    <ArrowLeft className="inline mr-1 mb-1" />
                     Retour
                 </button>
 
                 <button
-                    className="col-span-1 text-white rounded-xl bg-emerald-400 hover:bg-emerald-300 transition-colors duration-300 px-4 py-2"
+                    className="col-span-1 text-white rounded-xl bg-gradient-to-r from-emerald-300 to-emerald-400 hover:bg-emerald-300 hover:text-gray-200 transition-colors duration-300 px-4 py-2"
                     onClick={async () => {
                         const status = await handleSubmit();
                         if (status === 200) navigate("/partenariats");
                     }}
                 >
                     Valider
+                    <Check className="inline ml-1 mb-1" />
                 </button>
             </div>
         </>

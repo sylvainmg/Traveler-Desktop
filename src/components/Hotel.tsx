@@ -1,4 +1,4 @@
-import { useEffect, useState, type JSX } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import pays from "../utils/pays";
 import url from "../api/url";
@@ -6,9 +6,10 @@ import { useAuth } from "../contexts/AuthContext";
 import AdminFetch from "../api/AdminFetch";
 import type Admin from "../models/admin.model";
 import Swal from "sweetalert2";
+import { ArrowLeft, Check } from "lucide-react";
 
 function Hotel() {
-    const [admin, setAdmin] = useState<Admin>();
+    const [_, setAdmin] = useState<Admin>();
     const [chambres, setChambres] = useState([{ categorie: "", prix: 0 }]);
     const { token, refreshToken } = useAuth();
 
@@ -185,26 +186,41 @@ function Hotel() {
                 </div>
             ))}
 
-            <button
-                className="col-span-3 bg-blue-400 hover:bg-blue-300 transition-colors duration-300 text-white px-4 py-2 rounded-xl mt-3"
-                onClick={() => {
-                    setCount(count + 1);
-                    addChambre();
-                }}
-            >
-                Ajouter une chambre
-            </button>
+            <div className="grid grid-cols-2 gap-3 col-span-3 my-3 items-center">
+                <button
+                    className="col-span-1 bg-gradient-to-r from-red-500 to-amber-600 hover:bg-red-700 hover:text-gray-200 transition-colors duration-300 text-white px-4 py-2 rounded-xl mt-3"
+                    onClick={() => {
+                        const newChambres = [...chambres];
+                        if (newChambres.length > 1) {
+                            newChambres.pop();
+                            setChambres(newChambres);
+                        }
+                    }}
+                >
+                    Ajouter une chambre
+                </button>
+                <button
+                    className="col-span-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-blue-700 hover:text-gray-200 transition-colors duration-300 text-white px-4 py-2 rounded-xl mt-3"
+                    onClick={() => {
+                        setCount(count + 1);
+                        addChambre();
+                    }}
+                >
+                    Ajouter une chambre
+                </button>
+            </div>
 
             <div className="grid grid-cols-2 col-span-3 my-3 gap-3 items-center">
                 <button
-                    className="col-span-1 text-white rounded-xl bg-red-400 hover:bg-red-300 transition-colors duration-300 px-4 py-2"
+                    className="col-span-1 text-white rounded-xl bg-gradient-to-br from-gray-200 to-gray-400 hover:text-gray-200 hover:bg-red-300 transition-colors duration-300 px-4 py-2"
                     onClick={() => navigate("/partenariats")}
                 >
+                    <ArrowLeft className="inline mr-1 mb-1" />
                     Retour
                 </button>
 
                 <button
-                    className="col-span-1 text-white rounded-xl bg-emerald-400 hover:bg-emerald-300 transition-colors duration-300 px-4 py-2"
+                    className="col-span-1 text-white rounded-xl bg-gradient-to-r from-emerald-300 to-emerald-400 hover:bg-emerald-300 hover:text-gray-200 transition-colors duration-300 px-4 py-2"
                     onClick={async () => {
                         const status = await handleSubmit();
 
@@ -212,6 +228,7 @@ function Hotel() {
                     }}
                 >
                     Valider
+                    <Check className="inline ml-1 mb-1" />
                 </button>
             </div>
         </>

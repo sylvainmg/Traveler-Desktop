@@ -603,7 +603,7 @@ function Partenariats() {
                         }}
                     >
                         <p
-                            className={`flex items-center gap-2 justify-center p-2 w-1/2 bg-emerald-400 hover:bg-emerald-300 transition-colors duration-300 ${"border-b-2 border-emerald-400"}`}
+                            className={`flex items-center gap-2 justify-center rounded-xl p-2 w-1/2 bg-blue-600/10 hover:bg-blue-200/20 transition-colors duration-300 ${""}`}
                         >
                             <FaPlus size={20} />
                             <span>Ajouter</span>
@@ -772,7 +772,7 @@ function Partenariats() {
                                             >
                                                 <div className="flex flex-row items-center gap-x-1.5 justify-center hover:bg-gray-400/40 px-5 transition-colors duration-300 rounded-2xl">
                                                     <FaPen
-                                                        color="#0000ff"
+                                                        color="#4242e3ff"
                                                         size={16}
                                                     />
                                                     <p className="font-semibold">
@@ -791,7 +791,7 @@ function Partenariats() {
                                             >
                                                 <div className="flex flex-row items-center gap-x-1.5 justify-center hover:bg-gray-400/40 px-5 transition-colors duration-300 rounded-2xl">
                                                     <FaComment
-                                                        color="#fafa00"
+                                                        color="#f0da5cff"
                                                         size={16}
                                                     />
                                                     <p className="font-semibold">
@@ -880,7 +880,7 @@ function Partenariats() {
                                             >
                                                 <div className="flex flex-row items-center gap-x-1.5 justify-center hover:bg-gray-400/40 px-5 transition-colors duration-300 rounded-2xl">
                                                     <FaPen
-                                                        color="#0000ff"
+                                                        color="#4242e3ff"
                                                         size={16}
                                                     />
                                                     <p className="font-semibold">
@@ -897,7 +897,7 @@ function Partenariats() {
                                             >
                                                 <div className="flex flex-row items-center gap-x-1.5 justify-center hover:bg-gray-400/40 px-5 transition-colors duration-300 rounded-2xl">
                                                     <FaComment
-                                                        color="#fafa00"
+                                                        color="#f0da5cff"
                                                         size={16}
                                                     />
                                                     <p className="font-semibold">
