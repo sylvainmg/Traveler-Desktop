@@ -3,6 +3,7 @@ export default interface Hotel {
     id_hotel: number;
     nom: string;
     date_convention: string;
+    disponibilite: string;
 }
 
 export interface TopHotel {

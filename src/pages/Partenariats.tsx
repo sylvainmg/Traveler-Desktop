@@ -823,7 +823,7 @@ function Partenariats() {
                     </div>
                 ) : (
                     <div className="overflow-hidden h-screen grid grid-cols-6">
-                        <div className="grid grid-cols-6 text-slate-0 bg-blue-600/10 fixed w-full">
+                        <div className="grid grid-cols-7 text-slate-0 bg-blue-600/10 fixed w-full">
                             <div className="text-center py-2 font-semibold">
                                 Numéro de convention
                             </div>
@@ -840,6 +840,9 @@ function Partenariats() {
                                 Statut
                             </div>
                             <div className="text-center py-2 font-semibold">
+                                Disponibilité
+                            </div>
+                            <div className="text-center py-2 font-semibold">
                                 Actions
                             </div>
                         </div>
@@ -848,7 +851,7 @@ function Partenariats() {
                                 hotels.map((hotel) => (
                                     <div
                                         key={hotel.num_convention}
-                                        className="text-center grid grid-cols-6 hover:bg-gray-200/70 transition-colors duration-300"
+                                        className="text-center grid grid-cols-7 hover:bg-gray-200/70 transition-colors duration-300"
                                     >
                                         <div>{hotel.num_convention}</div>
                                         <div>{hotel.id_hotel}</div>
@@ -867,6 +870,7 @@ function Partenariats() {
                                                 )
                                             )}
                                         </div>
+                                        <div>{hotel.disponibilite}</div>
                                         <div>
                                             <Button
                                                 onClick={() => {
@@ -917,7 +921,7 @@ function Partenariats() {
                                 </div>
                             )}
                         </ScrollArea>
-                        <div className="mb-64" />
+                        <div className="mb-72" />
                         <div className="text-center fixed bottom-0 left-0 w-full bg-gray-400 text-white font-semibold">
                             {hotels?.length || ""}{" "}
                             {hotels && hotels?.length > 1

@@ -17,15 +17,11 @@ function createWindow() {
         icon: path.join(__dirname, "assets", "icon.png"),
     });
 
-    // charge le fichier index.html de ton build Vite
     if (process.env.NODE_ENV === "development") {
         win.loadURL("http://localhost:5173");
     } else {
         win.loadFile(path.join(__dirname, "../dist/index.html"));
     }
-
-    // ouvre les devtools (optionnel)
-    // win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {

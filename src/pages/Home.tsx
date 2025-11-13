@@ -101,7 +101,7 @@ function Home() {
 
                     <div className="col-span-1 ml-2 text-center bg-gradient-to-br from-purple-300 via-pink-200 to-rose-100 rounded-4xl border-purple-600">
                         <div className="py-0.5 gap-2 flex justify-center items-center">
-                            <p className="font-bold text-gray-600">
+                            <p className="font-bold text-white">
                                 Réservations au cours de l'année
                             </p>
                             <input
@@ -109,7 +109,7 @@ function Home() {
                                 name=""
                                 id=""
                                 className={
-                                    "border-2 border-gray-500 rounded-xl mb-2 w-1/12 focus:border-blue-600 outline-none mt-1.5 " +
+                                    "border-2 text-white border-white rounded-xl mb-2 w-1/12 focus:border-blue-600 outline-none mt-1.5 " +
                                     inputStyle
                                 }
                                 value={year}

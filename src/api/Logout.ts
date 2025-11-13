@@ -3,7 +3,7 @@ import url from "./url";
 export default async function Logout(token: string | null, id_admin: number) {
     if (!token) return;
     const response = await fetch(url + "auth/logout", {
-        method: "POST",
+        method: "DELETE",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,

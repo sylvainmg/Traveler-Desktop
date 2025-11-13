@@ -29,11 +29,11 @@ function AddPartenatiat({
 
                 <div className="row-span-1">
                     <div className="grid grid-cols-3 items-center gap-y-2.5">
-                        <p className="col-span-2">Type de partenariat</p>
+                        <p className="col-span-1">Type de partenariat</p>
                         <select
                             value={select}
                             onChange={(e) => setSelect(e.target.value)}
-                            className="col-span-1 p-2"
+                            className="col-span-2 p-2"
                         >
                             <option value="Hotel">Hôtel</option>
                             <option value="Airline">Compagnie aérienne</option>

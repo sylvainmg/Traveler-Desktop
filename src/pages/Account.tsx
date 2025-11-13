@@ -83,7 +83,7 @@ function Account({
             </div>
             <div className="w-full flex justify-center items-center mt-5">
                 <Button
-                    className="border-2 p-2 mt-5 hover:bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-200 rounded-xl transition-colors duration-300 font-semibold text-white px-4 py-2"
+                    className="border-2 p-2 mt-5 hover:bg-blue-400 from-blue-100 via-cyan-100 to-blue-200 rounded-xl transition-colors duration-300 font-semibold text-white px-4 py-2"
                     onClick={async () => {
                         const status = await Logout(
                             token,
